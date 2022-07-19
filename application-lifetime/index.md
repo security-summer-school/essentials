@@ -14,11 +14,6 @@ We will discuss many things, like:
 - the memory address space of a process
 - how to start a process
 
-# Reminders and Prerequisites
-
-- Information required for this section
-- Commands / snippets that should be known, useful to copy-paste throughout the practical session
-
 # From Code to Application
 
 Every application is written in some form of code.
@@ -35,7 +30,7 @@ Some languages, like C and C++, require an additional step before compiling, **p
 The diagram from above represents the process during which some source code becomes a running application.
 The steps are detailed below.
 
-### Compiling
+## Compiling
 
 Compiling is the step in which a piece of code becomes binary data, readable by the CPU, also called **machine code**.
 This step is performed by the compiler.
@@ -56,7 +51,7 @@ $ gcc -c code.c
 
 The result is a binary object file, that can then be linked.
 
-### Linking
+## Linking
 
 Linking is the step in which libraries are added to our application.
 This step is done by the linker.
@@ -71,12 +66,12 @@ The linking step can use 2 types of libraries: static and dynamic.
 The linking process itself can be of 2 types, static and dynamic.
 Now that confusion has been created, lets explain each of those.
 
-#### Static Library
+### Static Library
 
 A static library is a library whose entire content is copied, as-is, in the executable.
 A static library is created using the `ar` command, and has the **.a** extension.
 
-#### Static Linking
+### Static Linking
 
 Static linking is the process in which **static libraries** are added to the final executable.
 This is done in a straightforward manner: copy everything from the libraries to the executable.
@@ -85,7 +80,7 @@ However, the statically-linked executables aren't more portable - maybe the libr
 
 ![Static Linking Overview](assets/static_linking.svg)
 
-#### Dynamic Libraries
+### Dynamic Libraries
 
 Dynamic libraries aren't copied in the exectable, like their static counterparts.
 Instead, they are loaded into memory when needed, and each executable that uses them has a way to access the symbols from those libraries.
@@ -119,7 +114,7 @@ Another way of seeing what dynamic libraries are used is using the following com
 $ readelf -d /bin/bash | grep NEEDED
 ```
 
-#### Dynamic Linking
+### Dynamic Linking
 
 Dynamic linking is the process during which a dynamic library is "connected" to the executable.
 It is the default type of linking.
@@ -130,7 +125,7 @@ One of them is the **return-to-libc** attack, which is discussed at the binary t
 
 ![Dynamic Linking Overview](assets/dynamic_linking.svg)
 
-### Loading
+## Loading
 
 Loading is the process in which the program is launched.
 During this process, the program code is placed in the OS memory, the dynamic libraries are found and placed into memory, then the control is passed to the application.
@@ -197,8 +192,6 @@ The process address space isn't fixed during the execution of a program; it can 
 `mprotect` is used to change the permissions of a memory page.
 Using `mprotect`, an application can change, for example, a page belonging to the `rodata` section to be writeable.
 
-TODO: Challenge: Blackbox - Reveal my data
-
 ### File Descriptors
 
 I/O access is usually done through files.
@@ -216,8 +209,6 @@ An open file can be closed, and the file descriptor freed for other uses, using 
 `read` and `write` are the main ways in which a file can be modified.
 Each call of `write` modifies the file on the storage environment.
 However, there are ways to modify a file, but have those modifications visible only to the current process.
-
-TODO: Challenge - Blackbox - Read my Files 
 
 ## Creating a Process
 
@@ -244,12 +235,9 @@ One use that you may encounter in the security world is using `exec` to make a p
 
 ![Exec Overview](assets/exec.svg)
 
-TODO: Challenge - Blackbox - If you want something done well, do it yourself
-
 # Summary
 
-- Sumamrizing session concepts
-- Summarizing commands / snippets that are useful for tutorials, challenges (easy reference, copy-paste)
+TODO
 
 # Activities
 
@@ -338,6 +326,8 @@ Someone left an executable, a library and a header file from that library.
 It seems the function should print something, but it doesn't want to.
 Make it talk.
 
+Submit the flag on CyberEDU.
+
 ## Tutorial: Take RO out of RODATA
 
 This task aims to show how to use mprotect, to modify the memory of a process. 
@@ -374,13 +364,34 @@ Follow the comments in `basics.c`.
 In this task, we spawn a child process, using fork, wait for its termination, then check the return code.
 Follow the comments in `fork.c`.
 
-## Tutorial: Give Me That Shell
+## Challenge: Blackbox
 
-In this task, we spawn a `sh` shell, using `execv`.
-`execv` takes 2 parameters:
-- the path for the new executable
-- an array of arguments to pass to that executable; in our case, it can be NULL
+You have access to a service that seems vulnerable.
+See if you can find its secrets.
+
+### Open My Files
+
+It seems the service lets you open some files.
+Maybe you find some interesting things there.
+
+### Reveal My Data
+
+Why would someone have a write-only memory zone?
+It must be hiding something there.
+
+### If You Want Something Done Well, Do It Yourself
+
+This process hides something.
+Can you get a shell and find what it's hiding?
+
+### Hidden
+
+There must be a glitch in the Matrix.
+That text doesn't make any sense.
 
 # Further Reading
 
-Any links or references to extra information.
+[PIC](https://en.wikipedia.org/wiki/Position-independent_code)
+[GOT and PLT](https://reverseengineering.stackexchange.com/questions/1992/what-is-plt-got)
+[vDSO](https://man7.org/linux/man-pages/man7/vdso.7.html)
+[ld](https://unix.stackexchange.com/questions/400621/what-is-lib64-ld-linux-x86-64-so-2-and-why-can-it-be-used-to-execute-file)
