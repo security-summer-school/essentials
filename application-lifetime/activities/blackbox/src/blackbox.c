@@ -136,6 +136,7 @@ int main(void)
 			printf("	examples of protection format: RW-, ---\n");
 			printf("open <file> - open a file; can open only the files diplayed by list\n");
 			printf("close - close the last opened file\n");
+			printf("read - read the current open file\n");
 			printf("exit - exit the program\n");
 		} else if (strncmp(command_type, "list", 4) == 0) {
 			resource = strtok(NULL, " ");
