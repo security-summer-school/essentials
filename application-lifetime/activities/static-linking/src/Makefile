@@ -1,4 +1,4 @@
-include ../../assets/common.mk
+include ../../../assets/common.mk
 TARGET = static-linked
 
 all: $(TARGET)

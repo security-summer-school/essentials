@@ -121,7 +121,7 @@ int main(void)
 		} else if (strncmp(command_type, "exec", 4) == 0) {
 			binary = strtok(NULL, " \n");
 
-			if (strncmp(binary, "/bin/sh", 7) != 0) {
+			if (strncmp(binary, "/bin/bash", 7) != 0) {
 				printf("https://bit.ly/3PURyzF\n");
 				continue;
 			}
@@ -136,6 +136,7 @@ int main(void)
 			printf("	examples of protection format: RW-, ---\n");
 			printf("open <file> - open a file; can open only the files diplayed by list\n");
 			printf("close - close the last opened file\n");
+			printf("exit - exit the program\n");
 		} else if (strncmp(command_type, "list", 4) == 0) {
 			resource = strtok(NULL, " ");
 
