@@ -392,6 +392,9 @@ That text doesn't make any sense.
 # Further Reading
 
 [PIC](https://en.wikipedia.org/wiki/Position-independent_code)
+
 [GOT and PLT](https://reverseengineering.stackexchange.com/questions/1992/what-is-plt-got)
+
 [vDSO](https://man7.org/linux/man-pages/man7/vdso.7.html)
+
 [ld](https://unix.stackexchange.com/questions/400621/what-is-lib64-ld-linux-x86-64-so-2-and-why-can-it-be-used-to-execute-file)
