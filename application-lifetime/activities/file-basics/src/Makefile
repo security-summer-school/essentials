@@ -1,4 +1,4 @@
-CC = gcc
+include ../../assets/common.mk
 
 all: basics
 

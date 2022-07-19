@@ -8,16 +8,16 @@ int main(void)
 	
 	pid = fork();
 	if (pid == 0) {
-		// child process
+		/* Child process */
 		printf("Hello from the child\n");
 
 		return 0;
 	} else {
-		// parent process
+		/* Parent process */
 		printf("Hello from the parent; pid of the child is %d\n", pid);
 		
-		/* wait for the child to finish execution;
-		 * the status of the child, at the end of the execution, is stored in wstatus
+		/* Wait for the child to finish execution.
+		 * The status of the child, at the end of the execution, is stored in wstatus
 		 */
 		ret = waitpid(pid, &wstatus, 0);
 

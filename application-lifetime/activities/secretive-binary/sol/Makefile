@@ -1,4 +1,4 @@
-CC = gcc
+include ../../assets/common.mk
 
 all: libhide_flag.so secretive
 
@@ -6,6 +6,9 @@ secretive: secretive.c
 	$(CC) $^ -L. -lhide_flag -o $@
 	
 libhide_flag.so: hide_flag.c
+	$(CC) -shared -fPIC $^ -o $@
+
+patch.so: patch.c
 	$(CC) -shared -fPIC $^ -o $@
 
 clean:
