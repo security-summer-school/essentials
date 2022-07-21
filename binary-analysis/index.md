@@ -106,11 +106,16 @@ Really.
 
 ## Challenge: Packaging is Important
 
-Someone delivered you a misterious package.
+Someone delivered you a mysterious package.
 
 ## Challenge: Ghidra Killer
 
+Some people just hate the people that use decompilers.
+One of those people left you a binary, to investigate.
 
+## Challenge: Spaghetti
+
+Someone felt like cooking today. Can you find the flag?
 
 # Further Reading
 
