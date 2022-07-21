@@ -5,7 +5,7 @@ all: packet pack copy
 packet: packet.c
 
 pack: packet
-	tar -czvf delivery packet 
+	zip delivery packet 
 
 copy:
-	cp delivery ../public
+	cp delivery.zip ../public/delivery
