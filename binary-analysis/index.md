@@ -6,14 +6,12 @@ weight: 10
 
 # Introduction
 
-Objectives and rationale for the current session.
-
-# Reminders and Prerequisites
-
-- Information required for this section
-- Commands / snippets that should be known, useful to copy-paste throughout the practical session
+Today's session aims to give you some tools to analyze a binary, in order to determine what that binary does and if it can hurt your system.
 
 # Static Analysis
+
+Static analysis means investigating the binary without running it.
+This means looking into the effective binary file for strings, symbols, interesting addresses and so on.
 
 ## strings
 
@@ -73,6 +71,16 @@ Unorthodox code, self-changing code, polymorphic code and other measures were ta
 [This](https://www.youtube.com/watch?v=HlUe0TUHOIc&ab_channel=DEFCONConference) talk by Christopher Domas is one of the best examples of measures taken to counter Ghidra and other decompilers.
 
 # Dynamic Analysis
+
+Dynamic analysis means observing the behaviour of the binary, when it it running.
+This is performed by tracing or sandboxing.
+
+Tracing is the process during which various checkpoints are placed in the code, that send alerts when the execution has reached them.
+Generally, the the context (registers, stack, variables) is also displayed.
+
+Sandboxing is a more complex process, in which you isolate a binary in a virtual machine (usually), run it and observer the changes made on the system: modified files, network traffic, etc.
+
+Today we use only tracing.
 
 ## strace
 
