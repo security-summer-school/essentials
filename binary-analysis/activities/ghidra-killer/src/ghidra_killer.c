@@ -6,7 +6,7 @@ int main()
 {
 	char buffer[30];
 
-	int fd = open("../src/flag", O_RDONLY);
+	int fd = open("flag", O_RDONLY);
 
 	read(fd, buffer, 30);
 
